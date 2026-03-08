@@ -12,32 +12,30 @@ const navLinks = [
 const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => void }) => (
   <button
     onClick={onToggle}
-    className="relative w-14 h-7 rounded-full bg-secondary border border-border cursor-pointer transition-colors duration-300 focus:outline-none"
+    className="relative w-10 h-10 rounded-lg bg-secondary border border-border cursor-pointer overflow-hidden focus:outline-none hover:border-primary/40 transition-colors duration-300"
     aria-label="Tema değiştir"
   >
-    {/* Track icons */}
-    <Sun className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground transition-opacity duration-300" style={{ opacity: isDark ? 0.3 : 0 }} />
-    <Moon className="absolute right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground transition-opacity duration-300" style={{ opacity: isDark ? 0 : 0.3 }} />
-
-    {/* Thumb */}
     <motion.div
-      className="absolute top-0.5 w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow-md"
-      animate={{ left: isDark ? "calc(100% - 1.625rem)" : "0.125rem" }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      className="absolute inset-0 flex items-center justify-center"
+      initial={false}
+      animate={{
+        y: isDark ? 0 : -40,
+        opacity: isDark ? 1 : 0,
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
     >
-      <motion.div
-        key={isDark ? "moon" : "sun"}
-        initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-        animate={{ rotate: 0, opacity: 1, scale: 1 }}
-        exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-        transition={{ duration: 0.25 }}
-      >
-        {isDark ? (
-          <Moon className="w-3 h-3 text-primary-foreground" />
-        ) : (
-          <Sun className="w-3 h-3 text-primary-foreground" />
-        )}
-      </motion.div>
+      <Moon className="w-4 h-4 text-primary" />
+    </motion.div>
+    <motion.div
+      className="absolute inset-0 flex items-center justify-center"
+      initial={false}
+      animate={{
+        y: isDark ? 40 : 0,
+        opacity: isDark ? 0 : 1,
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    >
+      <Sun className="w-4 h-4 text-primary" />
     </motion.div>
   </button>
 );
