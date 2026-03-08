@@ -77,6 +77,12 @@ const translations = {
       messagePlaceholder: "Mesajınız...",
       send: "Gönder",
     },
+    stats: {
+      projects: "Tamamlanan Proje",
+      experience: "Yıl Deneyim",
+      technologies: "Kullanılan Teknoloji",
+      commits: "GitHub Commit",
+    },
     // Footer
     footer: {
       builtWith: "Built with",
