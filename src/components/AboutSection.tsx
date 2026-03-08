@@ -35,7 +35,7 @@ const AboutSection = () => {
             <div className="mt-5 space-y-2 font-mono text-xs">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Konum</span>
-                <span className="text-foreground">Türkiye</span>
+                <span className="text-foreground">İstanbul / Güngören</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Diller</span>
