@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "Hakkımda", href: "#about" },
-  { label: "Projeler", href: "#projects" },
-  { label: "Yetenekler", href: "#skills" },
-  { label: "İletişim", href: "#contact" },
-];
+import { useLang } from "@/contexts/LangContext";
 
 const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => void }) => (
   <button
@@ -21,7 +15,6 @@ const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => vo
       animate={{ opacity: isDark ? 0.2 : 0.06, scale: isDark ? 1 : 0.92 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     />
-
     <motion.div
       className="absolute inset-0 flex items-center justify-center"
       initial={false}
@@ -30,7 +23,6 @@ const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => vo
     >
       <Moon className="w-4 h-4 text-primary" />
     </motion.div>
-
     <motion.div
       className="absolute inset-0 flex items-center justify-center"
       initial={false}
@@ -42,7 +34,22 @@ const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => vo
   </button>
 );
 
+const LangSwitch = () => {
+  const { lang, setLang } = useLang();
+  return (
+    <button
+      onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+      className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-secondary border border-border font-mono text-xs font-semibold text-foreground hover:border-primary/40 transition-all duration-300 cursor-pointer"
+      aria-label="Change language"
+    >
+      <Globe className="w-3.5 h-3.5 text-primary" />
+      <span>{lang === "tr" ? "EN" : "TR"}</span>
+    </button>
+  );
+};
+
 const Navbar = () => {
+  const { t } = useLang();
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
@@ -52,6 +59,13 @@ const Navbar = () => {
     return true;
   });
 
+  const navLinks = [
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
+
   const toggleTheme = () => {
     const root = document.documentElement;
     root.classList.add("theme-transition");
@@ -60,6 +74,7 @@ const Navbar = () => {
       root.classList.remove("theme-transition");
     }, 750);
   };
+
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add("dark");
@@ -70,7 +85,6 @@ const Navbar = () => {
     }
   }, [isDark]);
 
-
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container px-6 h-16 flex items-center justify-between">
@@ -79,7 +93,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -89,11 +103,13 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <LangSwitch />
           <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
         </div>
 
         {/* Mobile toggle */}
-        <div className="flex md:hidden items-center gap-3">
+        <div className="flex md:hidden items-center gap-2">
+          <LangSwitch />
           <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
           <button
             onClick={() => setIsOpen(!isOpen)}

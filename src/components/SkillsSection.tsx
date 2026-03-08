@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLang } from "@/contexts/LangContext";
 
 const skillCategories = [
   {
@@ -31,15 +32,17 @@ const skillCategories = [
 ];
 
 const SkillsSection = () => {
+  const { t } = useLang();
+
   return (
     <section id="skills" className="py-24 relative">
       <div className="container px-6">
         <div className="font-mono text-sm text-muted-foreground mb-2 flex items-center gap-2">
           <span className="text-primary">~</span>
-          <span>$ cat skills.json</span>
+          <span>{t.skills.terminal}</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-mono font-bold text-foreground mb-16">
-          Yetenekler<span className="text-primary">.</span>
+          {t.skills.title}<span className="text-primary">.</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -52,7 +55,6 @@ const SkillsSection = () => {
               transition={{ delay: ci * 0.15, duration: 0.5 }}
               className="border border-border rounded-lg p-6 bg-card"
             >
-              {/* Terminal-style header */}
               <div className="flex items-center gap-2 mb-6 pb-3 border-b border-border">
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />

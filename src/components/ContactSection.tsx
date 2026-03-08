@@ -1,20 +1,22 @@
 import { motion } from "framer-motion";
 import { Github, Mail, Send } from "lucide-react";
+import { useLang } from "@/contexts/LangContext";
 
 const ContactSection = () => {
+  const { t } = useLang();
+
   return (
     <section id="contact" className="py-24 relative">
       <div className="container px-6">
         <div className="font-mono text-sm text-muted-foreground mb-2 flex items-center gap-2">
           <span className="text-primary">~</span>
-          <span>$ ./contact --send-message</span>
+          <span>{t.contact.terminal}</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-mono font-bold text-foreground mb-16">
-          İletişim<span className="text-primary">.</span>
+          {t.contact.title}<span className="text-primary">.</span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl">
-          {/* Left: Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -22,9 +24,7 @@ const ContactSection = () => {
             transition={{ duration: 0.5 }}
           >
             <p className="text-secondary-foreground leading-relaxed mb-8">
-              Yeni projeler ve işbirlikleri için her zaman açığım. 
-              Backend geliştirme, API tasarımı veya mobil uygulama konularında 
-              benimle iletişime geçebilirsiniz.
+              {t.contact.description}
             </p>
 
             <div className="space-y-4">
@@ -39,7 +39,6 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Right: Form */}
           <motion.form
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -49,15 +48,15 @@ const ContactSection = () => {
             onSubmit={(e) => e.preventDefault()}
           >
             <div>
-              <label className="font-mono text-xs text-muted-foreground mb-1.5 block">// isim</label>
+              <label className="font-mono text-xs text-muted-foreground mb-1.5 block">{t.contact.nameLabel}</label>
               <input
                 type="text"
                 className="w-full px-4 py-3 bg-secondary border border-border rounded-md font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                placeholder="Adınız"
+                placeholder={t.contact.namePlaceholder}
               />
             </div>
             <div>
-              <label className="font-mono text-xs text-muted-foreground mb-1.5 block">// email</label>
+              <label className="font-mono text-xs text-muted-foreground mb-1.5 block">{t.contact.emailLabel}</label>
               <input
                 type="email"
                 className="w-full px-4 py-3 bg-secondary border border-border rounded-md font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
@@ -65,11 +64,11 @@ const ContactSection = () => {
               />
             </div>
             <div>
-              <label className="font-mono text-xs text-muted-foreground mb-1.5 block">// mesaj</label>
+              <label className="font-mono text-xs text-muted-foreground mb-1.5 block">{t.contact.messageLabel}</label>
               <textarea
                 rows={4}
                 className="w-full px-4 py-3 bg-secondary border border-border rounded-md font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                placeholder="Mesajınız..."
+                placeholder={t.contact.messagePlaceholder}
               />
             </div>
             <button
@@ -77,7 +76,7 @@ const ContactSection = () => {
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-md hover:opacity-90 transition-opacity"
             >
               <Send className="w-4 h-4" />
-              Gönder
+              {t.contact.send}
             </button>
           </motion.form>
         </div>

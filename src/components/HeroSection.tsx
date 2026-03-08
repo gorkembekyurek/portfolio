@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Download } from "lucide-react";
+import { useLang } from "@/contexts/LangContext";
 
 const HeroSection = () => {
+  const { t } = useLang();
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Backend Developer";
+  const fullText = t.hero.subtitle;
 
   useEffect(() => {
+    setDisplayText("");
     let i = 0;
     const interval = setInterval(() => {
       if (i <= fullText.length) {
@@ -17,11 +20,10 @@ const HeroSection = () => {
       }
     }, 80);
     return () => clearInterval(interval);
-  }, []);
+  }, [fullText]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
-      {/* Scanline effect */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-transparent" 
              style={{ animation: "scanline 8s linear infinite" }} />
@@ -34,16 +36,15 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          {/* Terminal prompt */}
           <div className="font-mono text-sm text-muted-foreground mb-6 flex items-center gap-2">
             <span className="text-primary">~</span>
             <span>$ whoami</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-mono font-bold mb-4 tracking-tight">
-            <span className="text-foreground">Merhaba,</span>
+            <span className="text-foreground">{t.hero.greeting}</span>
             <br />
-            <span className="text-foreground">Ben </span>
+            <span className="text-foreground">{t.hero.iam}</span>
             <span className="text-primary text-glow">Görkem</span>
           </h1>
 
@@ -59,8 +60,7 @@ const HeroSection = () => {
             transition={{ delay: 1.5, duration: 0.6 }}
             className="text-secondary-foreground text-lg max-w-xl leading-relaxed mb-10"
           >
-            Laravel, Ionic ve modern web teknolojileriyle ölçeklenebilir 
-            uygulamalar geliştiriyorum. E-ticaret'ten fintech'e kadar geniş bir yelpazede deneyim.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -70,20 +70,19 @@ const HeroSection = () => {
             className="flex gap-3 flex-wrap"
           >
             <a href="#projects" className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-primary text-primary-foreground font-mono text-xs sm:text-sm font-semibold rounded-md hover:opacity-90 transition-opacity">
-              ./projeler.sh
+              {t.hero.projectsBtn}
             </a>
             <a href="#contact" className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 border border-border text-foreground font-mono text-xs sm:text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
-              ./iletisim.sh
+              {t.hero.contactBtn}
             </a>
             <a href="/cv.pdf" download className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 border border-border text-foreground font-mono text-xs sm:text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
               <Download className="w-4 h-4" />
-              CV İndir
+              {t.hero.cvBtn}
             </a>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Decorative code block */}
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 0.15, x: 0 }}
