@@ -52,15 +52,15 @@ const Navbar = () => {
     return true;
   });
 
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDark]);
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    root.classList.add("theme-transition");
+    setIsDark((prev) => !prev);
+    window.setTimeout(() => {
+      root.classList.remove("theme-transition");
+    }, 500);
+  };
+
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
