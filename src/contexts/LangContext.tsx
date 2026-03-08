@@ -158,7 +158,11 @@ const translations = {
   },
 } as const;
 
-type Translations = typeof translations.tr;
+type DeepStringify<T> = {
+  [K in keyof T]: T[K] extends object ? DeepStringify<T[K]> : string;
+};
+
+type Translations = DeepStringify<typeof translations.tr>;
 
 interface LangContextType {
   lang: Lang;
