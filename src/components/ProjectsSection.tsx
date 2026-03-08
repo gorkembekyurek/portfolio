@@ -70,7 +70,9 @@ const ProjectsSection = () => {
                       </h3>
                       <span className="font-mono text-xs text-primary/70">{project.tech}</span>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                      <Github className="w-5 h-5" />
+                    </a>
                   </div>
 
                   <p className="text-secondary-foreground leading-relaxed mb-4">
