@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Download } from "lucide-react";
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
