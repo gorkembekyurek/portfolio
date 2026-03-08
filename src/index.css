@@ -133,6 +133,17 @@
   }
 }
 
+@layer base {
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 0.45s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
 @layer utilities {
   .text-glow {
     text-shadow: 0 0 20px hsl(var(--terminal-glow) / 0.4),

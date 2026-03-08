@@ -85,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <div className="flex md:hidden items-center gap-3">
-          <ThemeSwitch isDark={isDark} onToggle={() => setIsDark(!isDark)} />
+          <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground"
