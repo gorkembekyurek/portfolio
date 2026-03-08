@@ -96,10 +96,10 @@ const AboutSection = () => {
             <div className="space-y-5">
               <div className="relative pl-4 border-l-2 border-primary/30">
                 <div className="absolute left-[-5px] top-1 w-2 h-2 rounded-full bg-primary" />
-                <h4 className="font-mono text-sm font-semibold text-foreground">Bilgisayar Mühendisliği</h4>
-                <span className="font-mono text-xs text-primary">Üniversite</span>
+                <h4 className="font-mono text-sm font-semibold text-foreground">Bilgisayar Programcılığı</h4>
+                <span className="font-mono text-xs text-primary">İstanbul Kültür Üniversitesi</span>
                 <p className="text-secondary-foreground text-xs mt-1.5 leading-relaxed">
-                  Yazılım geliştirme, veri yapıları, algoritma ve veritabanı yönetimi.
+                  Mezun — GNO: 3.13 / 4.00. Yazılım geliştirme, veri yapıları, algoritma ve veritabanı yönetimi.
                 </p>
               </div>
               <div className="relative pl-4 border-l-2 border-primary/30">
