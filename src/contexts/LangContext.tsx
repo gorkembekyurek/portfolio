@@ -158,6 +158,8 @@ const translations = {
       messageLabel: "// message",
       messagePlaceholder: "Your message...",
       send: "Send",
+      errorEmpty: "Please fill in all fields.",
+      successMsg: "Opening your email app...",
     },
     stats: {
       projects: "Completed Projects",
