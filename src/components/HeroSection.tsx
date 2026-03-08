@@ -69,13 +69,13 @@ const HeroSection = () => {
             transition={{ delay: 2, duration: 0.5 }}
             className="flex gap-3 flex-wrap"
           >
-            <a href="#projects" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-md hover:opacity-90 transition-opacity">
+            <a href="#projects" className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-primary text-primary-foreground font-mono text-xs sm:text-sm font-semibold rounded-md hover:opacity-90 transition-opacity">
               ./projeler.sh
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-mono text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
+            <a href="#contact" className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 border border-border text-foreground font-mono text-xs sm:text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
               ./iletisim.sh
             </a>
-            <a href="/cv.pdf" download className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-mono text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
+            <a href="/cv.pdf" download className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 border border-border text-foreground font-mono text-xs sm:text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
               <Download className="w-4 h-4" />
               CV İndir
             </a>
