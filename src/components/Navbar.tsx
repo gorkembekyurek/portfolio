@@ -58,7 +58,7 @@ const Navbar = () => {
     setIsDark((prev) => !prev);
     window.setTimeout(() => {
       root.classList.remove("theme-transition");
-    }, 500);
+    }, 750);
   };
   useEffect(() => {
     if (isDark) {
