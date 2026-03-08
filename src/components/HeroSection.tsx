@@ -43,7 +43,7 @@ const HeroSection = () => {
             <span className="text-foreground">Merhaba,</span>
             <br />
             <span className="text-foreground">Ben </span>
-            <span className="text-primary text-glow">Developer</span>
+            <span className="text-primary text-glow">Görkem</span>
           </h1>
 
           <div className="font-mono text-xl md:text-2xl text-muted-foreground mb-8 flex items-center">

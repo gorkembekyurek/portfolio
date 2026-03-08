@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Mail, Send } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -28,17 +28,13 @@ const ContactSection = () => {
             </p>
 
             <div className="space-y-4">
-              <a href="mailto:hello@example.com" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors font-mono text-sm group">
+              <a href="mailto:gorkemb11@icloud.com" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors font-mono text-sm group">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>hello@example.com</span>
+                <span>gorkemb11@icloud.com</span>
               </a>
-              <a href="#" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors font-mono text-sm group">
+              <a href="https://github.com/gorkembekyurek" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors font-mono text-sm group">
                 <Github className="w-4 h-4 text-primary" />
-                <span>github.com/username</span>
-              </a>
-              <a href="#" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors font-mono text-sm group">
-                <Linkedin className="w-4 h-4 text-primary" />
-                <span>linkedin.com/in/username</span>
+                <span>github.com/gorkembekyurek</span>
               </a>
             </div>
           </motion.div>
