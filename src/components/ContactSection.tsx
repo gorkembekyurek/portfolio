@@ -1,9 +1,29 @@
 import { motion } from "framer-motion";
 import { Github, Mail, Send } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const ContactSection = () => {
   const { t } = useLang();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast.error(t.contact.errorEmpty || "Lütfen tüm alanları doldurun.");
+      return;
+    }
+    const subject = encodeURIComponent(`Portfolyo İletişim: ${name}`);
+    const body = encodeURIComponent(`İsim: ${name}\nEmail: ${email}\n\nMesaj:\n${message}`);
+    window.location.href = `mailto:gorkemb11@icloud.com?subject=${subject}&body=${body}`;
+    toast.success(t.contact.successMsg || "E-posta uygulamanız açılıyor...");
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
 
   return (
     <section id="contact" className="py-24 relative">
@@ -45,12 +65,14 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="space-y-4"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div>
               <label className="font-mono text-xs text-muted-foreground mb-1.5 block">{t.contact.nameLabel}</label>
               <input
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full px-4 py-3 bg-secondary border border-border rounded-md font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                 placeholder={t.contact.namePlaceholder}
               />
@@ -59,6 +81,8 @@ const ContactSection = () => {
               <label className="font-mono text-xs text-muted-foreground mb-1.5 block">{t.contact.emailLabel}</label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 bg-secondary border border-border rounded-md font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                 placeholder="email@example.com"
               />
@@ -67,6 +91,8 @@ const ContactSection = () => {
               <label className="font-mono text-xs text-muted-foreground mb-1.5 block">{t.contact.messageLabel}</label>
               <textarea
                 rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full px-4 py-3 bg-secondary border border-border rounded-md font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
                 placeholder={t.contact.messagePlaceholder}
               />

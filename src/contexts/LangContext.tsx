@@ -76,6 +76,8 @@ const translations = {
       messageLabel: "// mesaj",
       messagePlaceholder: "Mesajınız...",
       send: "Gönder",
+      errorEmpty: "Lütfen tüm alanları doldurun.",
+      successMsg: "E-posta uygulamanız açılıyor...",
     },
     stats: {
       projects: "Tamamlanan Proje",
@@ -156,6 +158,8 @@ const translations = {
       messageLabel: "// message",
       messagePlaceholder: "Your message...",
       send: "Send",
+      errorEmpty: "Please fill in all fields.",
+      successMsg: "Opening your email app...",
     },
     stats: {
       projects: "Completed Projects",
