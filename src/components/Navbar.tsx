@@ -18,15 +18,15 @@ const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => vo
     <motion.span
       className="absolute inset-0 bg-primary/10"
       initial={false}
-      animate={{ opacity: isDark ? 0.18 : 0.08, scale: isDark ? 1 : 0.94 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      animate={{ opacity: isDark ? 0.2 : 0.06, scale: isDark ? 1 : 0.92 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     />
 
     <motion.div
       className="absolute inset-0 flex items-center justify-center"
       initial={false}
-      animate={{ opacity: isDark ? 1 : 0, rotate: isDark ? 0 : -70, scale: isDark ? 1 : 0.72 }}
-      transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+      animate={{ opacity: isDark ? 1 : 0, rotate: isDark ? 0 : -120, scale: isDark ? 1 : 0.4 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <Moon className="w-4 h-4 text-primary" />
     </motion.div>
@@ -34,8 +34,8 @@ const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => vo
     <motion.div
       className="absolute inset-0 flex items-center justify-center"
       initial={false}
-      animate={{ opacity: isDark ? 0 : 1, rotate: isDark ? 70 : 0, scale: isDark ? 0.72 : 1 }}
-      transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+      animate={{ opacity: isDark ? 0 : 1, rotate: isDark ? 120 : 0, scale: isDark ? 0.4 : 1 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <Sun className="w-4 h-4 text-primary" />
     </motion.div>
@@ -58,7 +58,7 @@ const Navbar = () => {
     setIsDark((prev) => !prev);
     window.setTimeout(() => {
       root.classList.remove("theme-transition");
-    }, 500);
+    }, 750);
   };
   useEffect(() => {
     if (isDark) {
