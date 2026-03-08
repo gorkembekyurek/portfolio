@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Download } from "lucide-react";
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
@@ -73,6 +74,10 @@ const HeroSection = () => {
             </a>
             <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-mono text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
               ./iletisim.sh
+            </a>
+            <a href="/cv.pdf" download className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-mono text-sm rounded-md hover:border-primary hover:text-primary transition-colors">
+              <Download className="w-4 h-4" />
+              CV İndir
             </a>
           </motion.div>
         </motion.div>
