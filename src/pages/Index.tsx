@@ -8,6 +8,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import IntroAnimation from "@/components/IntroAnimation";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -27,6 +28,7 @@ const Index = () => {
       <SkillsSection />
       <ContactSection />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
