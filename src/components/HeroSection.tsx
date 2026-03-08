@@ -67,7 +67,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2, duration: 0.5 }}
-            className="flex gap-4 flex-wrap"
+            className="flex gap-3 flex-wrap"
           >
             <a href="#projects" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-md hover:opacity-90 transition-opacity">
               ./projeler.sh
