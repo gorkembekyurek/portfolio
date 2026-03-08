@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, ShoppingCart, Smartphone, TrendingUp } from "lucide-react";
+import { Github, ShoppingCart, Smartphone, TrendingUp } from "lucide-react";
 
 const projects = [
   {
@@ -9,6 +9,7 @@ const projects = [
     description: "Laravel framework ile geliştirilmiş tam kapsamlı e-ticaret platformu. Ürün yönetimi, sepet sistemi, ödeme entegrasyonu ve admin paneli içerir.",
     tags: ["Laravel", "PHP", "MySQL", "REST API", "Blade"],
     color: "from-red-500/20 to-orange-500/20",
+    github: "https://github.com/gorkembekyurek/e-ticaret-sitesi",
   },
   {
     title: "E-Ticaret Mobil App",
@@ -17,6 +18,7 @@ const projects = [
     description: "Ionic framework ile cross-platform olarak geliştirilen e-ticaret mobil uygulaması. iOS ve Android'de çalışır, push notification ve offline destek sunar.",
     tags: ["Ionic", "TypeScript", "Angular", "Capacitor", "Firebase"],
     color: "from-blue-500/20 to-cyan-500/20",
+    github: "https://github.com/gorkembekyurek/e-ticaret-app",
   },
   {
     title: "BIST Hisse Takip App",
@@ -25,6 +27,7 @@ const projects = [
     description: "Borsa İstanbul hisselerini anlık olarak takip edebileceğiniz uygulama. Canlı fiyat güncellemeleri, grafik analizi ve portföy yönetimi özellikleri sunar.",
     tags: ["WebSocket", "REST API", "Chart.js", "Real-time Data"],
     color: "from-green-500/20 to-emerald-500/20",
+    github: "https://github.com/gorkembekyurek/bist-portfolio",
   },
 ];
 
@@ -67,7 +70,9 @@ const ProjectsSection = () => {
                       </h3>
                       <span className="font-mono text-xs text-primary/70">{project.tech}</span>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                      <Github className="w-5 h-5" />
+                    </a>
                   </div>
 
                   <p className="text-secondary-foreground leading-relaxed mb-4">
