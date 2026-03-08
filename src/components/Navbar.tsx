@@ -12,28 +12,30 @@ const navLinks = [
 const ThemeSwitch = ({ isDark, onToggle }: { isDark: boolean; onToggle: () => void }) => (
   <button
     onClick={onToggle}
-    className="relative w-10 h-10 rounded-lg bg-secondary border border-border cursor-pointer overflow-hidden focus:outline-none hover:border-primary/40 transition-colors duration-300"
+    className="relative w-10 h-10 rounded-lg bg-secondary border border-border cursor-pointer overflow-hidden focus:outline-none hover:border-primary/40 transition-all duration-500"
     aria-label="Tema değiştir"
   >
+    <motion.span
+      className="absolute inset-0 bg-primary/10"
+      initial={false}
+      animate={{ opacity: isDark ? 0.18 : 0.08, scale: isDark ? 1 : 0.94 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    />
+
     <motion.div
       className="absolute inset-0 flex items-center justify-center"
       initial={false}
-      animate={{
-        y: isDark ? 0 : -40,
-        opacity: isDark ? 1 : 0,
-      }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      animate={{ opacity: isDark ? 1 : 0, rotate: isDark ? 0 : -70, scale: isDark ? 1 : 0.72 }}
+      transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
     >
       <Moon className="w-4 h-4 text-primary" />
     </motion.div>
+
     <motion.div
       className="absolute inset-0 flex items-center justify-center"
       initial={false}
-      animate={{
-        y: isDark ? 40 : 0,
-        opacity: isDark ? 0 : 1,
-      }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      animate={{ opacity: isDark ? 0 : 1, rotate: isDark ? 70 : 0, scale: isDark ? 0.72 : 1 }}
+      transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
     >
       <Sun className="w-4 h-4 text-primary" />
     </motion.div>
@@ -50,6 +52,14 @@ const Navbar = () => {
     return true;
   });
 
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    root.classList.add("theme-transition");
+    setIsDark((prev) => !prev);
+    window.setTimeout(() => {
+      root.classList.remove("theme-transition");
+    }, 500);
+  };
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add("dark");
@@ -59,6 +69,7 @@ const Navbar = () => {
       localStorage.setItem("theme", "light");
     }
   }, [isDark]);
+
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -78,12 +89,12 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <ThemeSwitch isDark={isDark} onToggle={() => setIsDark(!isDark)} />
+          <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
         </div>
 
         {/* Mobile toggle */}
         <div className="flex md:hidden items-center gap-3">
-          <ThemeSwitch isDark={isDark} onToggle={() => setIsDark(!isDark)} />
+          <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground"
