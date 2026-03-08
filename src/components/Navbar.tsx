@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
+  { label: "Hakkımda", href: "#about" },
   { label: "Projeler", href: "#projects" },
   { label: "Yetenekler", href: "#skills" },
   { label: "İletişim", href: "#contact" },
