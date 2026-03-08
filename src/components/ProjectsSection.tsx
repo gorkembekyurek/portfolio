@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, ShoppingCart, Smartphone, TrendingUp } from "lucide-react";
+import { Github, ShoppingCart, Smartphone, TrendingUp } from "lucide-react";
 
 const projects = [
   {
