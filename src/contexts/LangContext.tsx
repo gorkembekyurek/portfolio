@@ -76,6 +76,8 @@ const translations = {
       messageLabel: "// mesaj",
       messagePlaceholder: "Mesajınız...",
       send: "Gönder",
+      errorEmpty: "Lütfen tüm alanları doldurun.",
+      successMsg: "E-posta uygulamanız açılıyor...",
     },
     stats: {
       projects: "Tamamlanan Proje",
