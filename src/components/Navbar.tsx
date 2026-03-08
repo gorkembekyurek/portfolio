@@ -80,7 +80,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <ThemeSwitch isDark={isDark} onToggle={() => setIsDark(!isDark)} />
+          <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
         </div>
 
         {/* Mobile toggle */}
