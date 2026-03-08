@@ -157,6 +157,12 @@ const translations = {
       messagePlaceholder: "Your message...",
       send: "Send",
     },
+    stats: {
+      projects: "Completed Projects",
+      experience: "Years Experience",
+      technologies: "Technologies Used",
+      commits: "GitHub Commits",
+    },
     footer: {
       builtWith: "Built with",
       andCode: "& code",
