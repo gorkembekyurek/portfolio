@@ -35,7 +35,7 @@ const AboutSection = () => {
             <div className="mt-5 space-y-2 font-mono text-xs">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Konum</span>
-                <span className="text-foreground">Türkiye</span>
+                <span className="text-foreground">İstanbul / Güngören</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Diller</span>
@@ -63,18 +63,19 @@ const AboutSection = () => {
             <div className="space-y-5">
               <div className="relative pl-4 border-l-2 border-primary/30">
                 <div className="absolute left-[-5px] top-1 w-2 h-2 rounded-full bg-primary" />
-                <h4 className="font-mono text-sm font-semibold text-foreground">Backend Developer</h4>
-                <span className="font-mono text-xs text-primary">Freelance</span>
+                <h4 className="font-mono text-sm font-semibold text-foreground">Bilgi İşlem Stajyeri</h4>
+                <span className="font-mono text-xs text-primary">Emlak Yönetim Hizmetleri A.Ş.</span>
+                <span className="font-mono text-xs text-muted-foreground ml-2">Haz 2024 – Ağu 2024</span>
                 <p className="text-secondary-foreground text-xs mt-1.5 leading-relaxed">
-                  Laravel ile e-ticaret platformu geliştirme, API tasarımı ve veritabanı optimizasyonu.
+                  Zorunlu staj kapsamında bilgi işlem departmanında görev aldım. Sistem yönetimi ve teknik destek süreçlerinde deneyim kazandım.
                 </p>
               </div>
               <div className="relative pl-4 border-l-2 border-primary/30">
                 <div className="absolute left-[-5px] top-1 w-2 h-2 rounded-full bg-primary" />
-                <h4 className="font-mono text-sm font-semibold text-foreground">Mobil Geliştirici</h4>
-                <span className="font-mono text-xs text-primary">Freelance</span>
+                <h4 className="font-mono text-sm font-semibold text-foreground">Freelance Developer</h4>
+                <span className="font-mono text-xs text-primary">Bağımsız</span>
                 <p className="text-secondary-foreground text-xs mt-1.5 leading-relaxed">
-                  Ionic ile cross-platform e-ticaret ve borsa takip uygulamaları geliştirme.
+                  Laravel ile e-ticaret platformu, Ionic ile mobil uygulama ve BIST hisse takip uygulaması geliştirme.
                 </p>
               </div>
             </div>
@@ -95,10 +96,10 @@ const AboutSection = () => {
             <div className="space-y-5">
               <div className="relative pl-4 border-l-2 border-primary/30">
                 <div className="absolute left-[-5px] top-1 w-2 h-2 rounded-full bg-primary" />
-                <h4 className="font-mono text-sm font-semibold text-foreground">Bilgisayar Mühendisliği</h4>
-                <span className="font-mono text-xs text-primary">Üniversite</span>
+                <h4 className="font-mono text-sm font-semibold text-foreground">Bilgisayar Programcılığı</h4>
+                <span className="font-mono text-xs text-primary">İstanbul Kültür Üniversitesi</span>
                 <p className="text-secondary-foreground text-xs mt-1.5 leading-relaxed">
-                  Yazılım geliştirme, veri yapıları, algoritma ve veritabanı yönetimi.
+                  Mezun — GNO: 3.13 / 4.00. Yazılım geliştirme, veri yapıları, algoritma ve veritabanı yönetimi.
                 </p>
               </div>
               <div className="relative pl-4 border-l-2 border-primary/30">
