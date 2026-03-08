@@ -40,7 +40,7 @@ const HeroSection = () => {
             <span>$ whoami</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-mono font-bold mb-4 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-mono font-bold mb-4 tracking-tight">
             <span className="text-foreground">Merhaba,</span>
             <br />
             <span className="text-foreground">Ben </span>
